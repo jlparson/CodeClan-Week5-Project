@@ -7,15 +7,15 @@ import repositories.country_repository as country_repository
 import repositories.city_repository as city_repository
 import repositories.sight_repository as sight_repository
 
-# country_repository.delete_all()
-# city_repository.delete_all()
-# sight_repository.delete_all()
+country_repository.delete_all()
+city_repository.delete_all()
+sight_repository.delete_all()
 
-country1 = Country("Spain", True)
+country1 = Country("Spain")
 country_repository.save(country1)
-country2 = Country("France", True)
+country2 = Country("France")
 country_repository.save(country2)
-country3 = Country("Japan", False)
+country3 = Country("Japan")
 country_repository.save(country3)
 
 city1 = City("Granada", country1, True)
@@ -36,6 +36,43 @@ sight_repository.save(sight3)
 sight4 = Sight("Meiji Jingu Shrine", city4, False)
 sight_repository.save(sight4)
 
+# # CHECK SELECT_ALL FOR ALL REPOS
+# result1 = country_repository.select_all()
+# for country in result1:
+#     print(country.__dict__)
+
+# result2 = city_repository.select_all()
+# for city in result2:
+#     print(city.__dict__)
+
+# result3 = sight_repository.select_all()
+# for sight in result3:
+#     print(sight.__dict__)
+
+
+# # CHECK SELECT BY ID FOR ALL REPOS
+# result4 = country_repository.select(3)
+# print(result4)
+
+# result5 = city_repository.select(3)
+# print(result5)
+
+# result6 = sight_repository.select(3)
+# print(result6)
+
+
+# # CHECK DELETE BY ID FOR ALL REPOS
+# country_repository.delete(3)
+# city_repository.delete(1)
+# sight_repository.delete(1)
+
+
+# # CHECK UPDATE FOR ALL REPOS
+# city4.mark_city_visited()
+# city_repository.update(city4)
+
+# sight2.mark_sight_visited()
+# sight_repository.update(sight2)
 
 
 

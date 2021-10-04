@@ -5,3 +5,7 @@ class Sight:
         self.city = city
         self.visited = visited
         self.id = id
+
+    
+    def mark_sight_visited(self):
+        self.visited = True

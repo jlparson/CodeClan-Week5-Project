@@ -5,3 +5,7 @@ class City:
         self.country = country
         self.visited = visited
         self.id = id
+
+    
+    def mark_city_visited(self):
+        self.visited = True

@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
-from controllers.sight_controller import sights_blueprint
-from controllers.city_controller import cities_blueprint
+from controllers.sights_controller import sights_blueprint
+from controllers.cities_controller import cities_blueprint
 
 
 app = Flask(__name__)

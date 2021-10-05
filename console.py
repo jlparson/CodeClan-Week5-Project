@@ -35,6 +35,10 @@ sight3 = Sight("Eiffel Tower", city2, True)
 sight_repository.save(sight3)
 sight4 = Sight("Meiji Jingu Shrine", city4, False)
 sight_repository.save(sight4)
+sight5 = Sight("Tokyo Tower", city4, False)
+sight_repository.save(sight5)
+sight6 = Sight("Louvre Museum", city2, True)
+sight_repository.save(sight6)
 
 
 

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>Sightseeing</h2>
+
+    {% for sight in sights %}
+
+    <div class="sight list">
+        Country: {{sight.city.country.name}}
+        <br>City: {{sight.city.name}}
+        <br>Sight: {{sight.name}}
+        <br>Visited? 
+        {% if sight.visited == False %}
+        <span>&#10005;</span>
+        {% else %}
+        <span>&#10004;</span>
+        {% endif %}
+    </div>
+
+    <div class="buttons">
+        <button class="button"><a href="/sights/{{sight.id}}/edit">Edit</a></button>
+            <form class="delete-form" action="/sights/{{sight.id}}/delete" method="POST">
+            <button class="button">Delete</button>
+            </form>
+    </div>
+{% endfor %}
+
+   
+{% endblock %}

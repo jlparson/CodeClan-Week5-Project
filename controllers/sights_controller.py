@@ -3,15 +3,15 @@ from flask import Blueprint
 from models.sight import Sight
 
 import repositories.city_repository as city_repository
-# import repositories.country_repository as country_repository
 import repositories.sight_repository as sight_repository
+import repositories.country_repository as country_repository
 
 sights_blueprint = Blueprint("sights", __name__)
 
 @sights_blueprint.route("/sights")
 def sights():
     sights = sight_repository.select_all()
-    return render_template("sights/index.html", all_sights = sights)
+    return render_template("sights/index.html", sights = sights)
 
 
 # SIGHTS VISITED
@@ -32,7 +32,7 @@ def sights_bucket_list():
 @sights_blueprint.route("/sights/new", methods=['GET'])
 def new_sight():
     cities = city_repository.select_all()
-    return render_template("sights/new.html", all_cities=cities)
+    return render_template("sights/new.html", cities=cities)
 
 # CREATE
 # POST '/sights'
@@ -50,7 +50,7 @@ def create_sight():
 def edit_sight(id):
     sights = sight_repository.select(id)
     cities = city_repository.select_all()
-    return render_template('/sights/edit.html', cities=cities, sights=sights)
+    return render_template('/sights/edit.html', sights=sights)
 
 # UPDATE
 @sights_blueprint.route("/sights/<id>", methods=['POST'])
@@ -67,7 +67,7 @@ def update_sight(id):
 @sights_blueprint.route("/sights/<id>/delete", methods=['POST'])
 def delete_sight(id):
     sight_repository.delete(id)
-    return redirect('/sights/')
+    return redirect('/sights')
 
 
 

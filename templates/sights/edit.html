@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="edit form">
+
+<h2>Edit Entry</h2>
+
+<form action="/sights/{{sight.id}}" method="POST">
+    <div>
+        <label for="country">Country: </label>
+        <input type="text" id="country" name="country" value="{{sight.city.country.name}}" required>
+    </div>
+
+    <div>
+        <label for="city">City: </label>
+        <input type="text" id="city" name="city" value="{{sight.city.name}}" required>
+    </div>
+
+    <div>
+        <label for="sight">Sight: </label>
+        <input type="text" id="sight" name="sight" value="{{sight.name}}">
+    </div>
+
+    <div>
+        <label for="visited">Visited? </label>
+        <select id="visited" name="visited">
+            <option value="False" {% if sight.visited == False %} selected {% endif %}>No</option>
+            <option value="True" {% if sight.visited == True %} selected {% endif %}>Yes</option>
+        </select>
+    </div>
+
+    <button type="submit" value="update">Update {{sight.name}}</button>
+</form>
+
+</div>
+
+{% endblock %}

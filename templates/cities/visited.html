@@ -9,10 +9,10 @@
             Country: {{city.country.name}}
             <br>City: {{city.name}}
             <br>Visited?
-            {% if city.visited == True %}
-            <span>&#10004;</span>
-            {% else %}
+            {% if city.visited == False %}
             <span>&#10005;</span>
+                {% else %}
+            <span>&#10004;</span>
             {% endif %}
         </div> 
         <div class="buttons">
@@ -22,5 +22,7 @@
             </form>
         </div>
     {% endfor %}
-   
+
+
+    
 {% endblock %}

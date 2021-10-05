@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>Travel Bucket List</h2>
+
+    {% for city in cities if city.visited == False %}
+
+        <div class="bucket list">
+            Country: {{city.country.name}}
+            <br>City: {{city.name}}
+            <br>Visited?
+            {% if city.visited == False %}
+            <span>&#10005;</span>
+            {% else %}
+            <span>&#10004;</span>
+            {% endif %}
+        </div> 
+        <div class="buttons">
+            <button class="button"><a href="/cities/{{city.id}}/edit">Edit</a></button>
+                <form class="delete-form" action="/cities/{{city.id}}/delete" method="POST">
+                <button class="button">Delete</button>
+                </form>
+        </div>
+    {% endfor %}
+
+    <hr>
+
+    
+       
+{% endblock %}

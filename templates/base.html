@@ -9,15 +9,13 @@
 </head>
 <body>
     <header>
-        </a>
         <nav>
             <ul class="menu">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="#">Places Visited</a></li>
-                <li><a href="#">Bucket List</a></li>
+                <li><a href="/visited">Places Visited</a></li>
+                <li><a href="/bucketlist">Bucket List</a></li>
             </ul>
         </nav>
-        <a class="button" href="#"><button>Contact</button></a>
     </header>
     <div class="container">
         {% block content %}

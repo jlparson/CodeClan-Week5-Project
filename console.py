@@ -36,44 +36,6 @@ sight_repository.save(sight3)
 sight4 = Sight("Meiji Jingu Shrine", city4, False)
 sight_repository.save(sight4)
 
-# # CHECK SELECT_ALL FOR ALL REPOS
-# result1 = country_repository.select_all()
-# for country in result1:
-#     print(country.__dict__)
-
-# result2 = city_repository.select_all()
-# for city in result2:
-#     print(city.__dict__)
-
-# result3 = sight_repository.select_all()
-# for sight in result3:
-#     print(sight.__dict__)
-
-
-# # CHECK SELECT BY ID FOR ALL REPOS
-# result4 = country_repository.select(3)
-# print(result4)
-
-# result5 = city_repository.select(3)
-# print(result5)
-
-# result6 = sight_repository.select(3)
-# print(result6)
-
-
-# # CHECK DELETE BY ID FOR ALL REPOS
-# country_repository.delete(3)
-# city_repository.delete(1)
-# sight_repository.delete(1)
-
-
-# # CHECK UPDATE FOR ALL REPOS
-# city4.mark_city_visited()
-# city_repository.update(city4)
-
-# sight2.mark_sight_visited()
-# sight_repository.update(sight2)
-
 
 
 pdb.set_trace()

@@ -3,12 +3,19 @@
 {% block content %}
     <h2>Record your travels and create a travel bucket list</h2>
     <hr>
-    <div id="visited"><a href="#"></a></div>
-    <button class="button button1">
-        Places Visited
-    </button>
-    <button class="button button2">
-        Bucket List
-    </button>
+    <div class="row">
+        <div class="column"></div>
+            <a href="/visited">
+                <img src="/static/images/tourist_resized.jpg">
+                <br>Places I've Visited
+            </a>
+        </div>
+        <div class="column">
+            <a href="/bucketlist">
+                <img src="/static/images/luggage_map_resized.jpg">
+                <br>Travel Bucket List
+            </a>
+        </div>
+
 
 {% endblock %}

@@ -39,7 +39,7 @@ def new_city():
 def create_city():
     name = request.form['name']
     country = country_repository.select(request.form['country_id'])
-    visited = request.form["visited"]
+    visited = request.form['visited']
     city = City(name, country, visited)
     city_repository.save(city)
     return redirect('/cities')
@@ -52,13 +52,24 @@ def edit_city(id):
     return render_template('/cities/edit.html', city=city, all_countries = countries)
 
 # UPDATE
+# @cities_blueprint.route("/cities/<id>", methods=['POST'])
+# def update_city(id):
+#     name = request.form['name']
+#     country = country_repository.select(request.form['country_id'])
+#     visited = request.form["visited"]
+#     city = City(name, country, visited)
+#     print(city.country.name)
+#     city_repository.update(city)
+#     return redirect('/cities')
+
+# UPDATE
 @cities_blueprint.route("/cities/<id>", methods=['POST'])
 def update_city(id):
     name = request.form['name']
-    country = country_repository.select(request.form['country_id'])
-    visited = request.form["visited"]
-    city = City(name, country, visited)
-    print(city.country.name)
+    country_id = request.form['country_id']
+    visited = request.form['visited']
+    country = country_repository.select(country_id)
+    city = City(name, country, visited, id)
     city_repository.update(city)
     return redirect('/cities')
 

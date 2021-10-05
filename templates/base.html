@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible", content="ie=edge">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Lobster&display=swap'>
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Travel Bucket List</title>
 </head>
 <body>
     <header>
-        <div class="navigation">
-            <nav class = "navbar">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/visited">Places Visited</a></li>
-                    <li><a href="/bucketlist">Bucket List</a></li>
-                    <li><a href="/sights">Sights</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="/">
+            <img src="/static/images/logo_small.jpg" alt="logo">
+        </a>
+        <h1>Travel Bucket List</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/visited">Places Visited</a>
+                </li>
+                <li>
+                    <a href="/bucketlist">Bucket List</a>
+                </li>
+                <li>
+                    <a href="/sights">Sights</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="container">
+    <main> 
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
+    
 
     {% block home %}
     {% endblock %}

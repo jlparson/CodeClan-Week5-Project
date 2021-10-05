@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/sights" method="POST">
+
+    <div>
+        <label for="name">Sight: </label>
+        <input type="text" id="name" name="name" placeholder="New sight name" required autofocus>
+    </div>
+
+    <div>
+        <label for="city">City: </label>
+        <input type="text" id="city" name="city" placeholder="city" required autofocus>
+    </div>
+
+    <div>
+        <label for="visited">Visited? </label>
+        <select name="visited" id="visited">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <button type="submit" value="add_new">Add new entry</button>
+
+</form>
+
+
+{% endblock %}

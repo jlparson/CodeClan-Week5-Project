@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="edit form">
-
-<h2>Edit Entry</h2>
 
 <form action="/sights/{{sight.id}}" method="POST">
     <div>
@@ -29,7 +26,7 @@
         </select>
     </div>
 
-    <button type="submit" value="update">Update {{sight.name}}</button>
+    <input type="submit" value="update">
 </form>
 
 </div>

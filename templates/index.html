@@ -1,28 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Record your travels and create a travel bucket list</h2>
-    <div class="row">
-        <div class="column"></div>
-        <h3>Places I've Visited</h3>
-            <a href="/visited">
-                <img src="/static/images/tourist_resized.jpg">
-            </a>
-        </div>
+    <div class="wrapper">
+        <h2>Record your travels and create a travel bucket list</h2>
+        
+        <div class="flex-container">
 
-        <div class="column">
-        <h3>Travel Bucket List</h3>
-            <a href="/bucketlist">
-                <img src="/static/images/luggage_map_resized.jpg">
-            </a>
-        </div>
-
-        <div class="column">
-            <h3>Sightseeing</h3>
-                <a href="/sights/lists">
-                    <img src="/static/images/sights.jpg">
+            <div class="container">
+                <h3>Places I've Visited</h3>
+                <a href="/visited">
+                    <img src="/static/images/world-map-tourists_resized.jpg" alt="tourist">
                 </a>
             </div>
+
+            <div class="container">
+                <h3>Travel Bucket List</h3>
+                <a href="/bucketlist">
+                    <img src="/static/images/luggage_map_resized.jpg" alt="luggage">
+                </a>
+            </div>
+
+            <div class="container">
+                <h3>Sightseeing</h3>
+                    <a href="/sights">
+                        <img src="/static/images/sights_resized.jpg" alt="tourist attractions">
+                    </a>
+            </div>
+
+        </div>
+    </div>
 
 
 {% endblock %}

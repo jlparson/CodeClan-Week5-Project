@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-
+    <div class="sightseeing">
     <h2>Sightseeing</h2>
+    <p>
+        Can't find a sight? <button class="button"><a href="/sights/new">Add new</a></button>
+    </p>
 
     {% for sight in sights %}
 
     <div class="sight list">
-        Country: {{sight.city.country.name}}
         <br>City: {{sight.city.name}}
         <br>Sight: {{sight.name}}
         <br>Visited? 
@@ -17,13 +19,14 @@
         {% endif %}
     </div>
 
-    <div class="buttons">
         <button class="button"><a href="/sights/{{sight.id}}/edit">Edit</a></button>
-            <form class="delete-form" action="/sights/{{sight.id}}/delete" method="POST">
+
+        <form class="delete-form" action="/sights/{{sight.id}}/delete" method="POST">
             <button class="button">Delete</button>
             </form>
-    </div>
+
 {% endfor %}
 
-   
+    </div>
+    
 {% endblock %}

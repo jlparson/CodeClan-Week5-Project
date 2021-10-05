@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/cities/{{city.id}}" method="POST">
+
+    <div>
+        <label for="name">City: </label>
+        <input type="text" id="name" name="name" value="{{city.name}}" required>
+    </div>
+
+    <div>
+        <label for="country">Country: </label>
+        <input type="text" id="country" name="country" value="{{city.country.name}}" required>
+    </div>
+
+    <div>
+        <label for="visited">Visited? </label>
+        <select id="visited" name="visited">
+            <option value="False" {% if sight.visited == False %} selected {% endif %}>No</option>
+            <option value="True" {% if sight.visited == True %} selected {% endif %}>Yes</option>
+        </select>
+    </div>
+
+    <input type="submit" value="update">
+</form>
+
+</div>
+
+{% endblock %}

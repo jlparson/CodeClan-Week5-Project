@@ -4,7 +4,7 @@ from models.sight import Sight
 
 import repositories.city_repository as city_repository
 import repositories.sight_repository as sight_repository
-import repositories.country_repository as country_repository
+
 
 sights_blueprint = Blueprint("sights", __name__)
 
@@ -14,17 +14,17 @@ def sights():
     return render_template("sights/index.html", sights = sights)
 
 
-# SIGHTS VISITED
-@sights_blueprint.route("/sights/visited")
-def sights_visited():
-    sights = sight_repository.select_all()
-    return render_template("sights/visited.html", sights=sights)
+# # SIGHTS VISITED
+# @sights_blueprint.route("/sights/visited")
+# def sights_visited():
+#     sights = sight_repository.select_all()
+#     return render_template("sights/visited.html", sights=sights)
 
-# SIGHTS BUCKET LIST
-@sights_blueprint.route("/sights/bucketlist")
-def sights_bucket_list():
-    sights = sight_repository.select_all()
-    return render_template("sights/bucketlist.html", sights=sights)
+# # SIGHTS BUCKET LIST
+# @sights_blueprint.route("/sights/bucketlist")
+# def sights_bucket_list():
+#     sights = sight_repository.select_all()
+#     return render_template("sights/bucketlist.html", sights=sights)
 
 
 # NEW
@@ -39,8 +39,9 @@ def new_sight():
 @sights_blueprint.route("/sights", methods=['POST'])
 def create_sight():
     name = request.form['name']
-    city = city_repository.select(request.form['city_id'])
-    visited = request.form["visited"]
+    city_id = city_repository.select(request.form['city_id'])
+    visited = request.form['visited']
+    city = city_repository.select(city_id)
     sight = Sight(name, city, visited)
     sight_repository.save(sight)
     return redirect('/sights')
@@ -50,7 +51,7 @@ def create_sight():
 def edit_sight(id):
     sights = sight_repository.select(id)
     cities = city_repository.select_all()
-    return render_template('/sights/edit.html', sights=sights)
+    return render_template('/sights/edit.html', cities=cities, sights=sights)
 
 # UPDATE
 @sights_blueprint.route("/sights/<id>", methods=['POST'])

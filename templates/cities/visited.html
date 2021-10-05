@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-
+    <div class="visited">
     <h2>Places I've Visited</h2>
+    <p>
+        Can't find a location? <button class="button"><a href="/cities/new">Add new</a></button>
+    </p>
 
     {% for city in cities if city.visited == True %}
 
@@ -23,6 +26,6 @@
         </div>
     {% endfor %}
 
-
+    </div>
     
 {% endblock %}

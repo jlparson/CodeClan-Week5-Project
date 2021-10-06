@@ -30,16 +30,18 @@ def cities_bucket_list():
 # GET '/cities/new'
 @cities_blueprint.route("/cities/new", methods=['GET'])
 def new_city():
+    cities = city_repository.select_all()
     countries = country_repository.select_all()
-    return render_template("cities/new.html", all_countries = countries)
+    return render_template("cities/new.html", cities=cities, countries = countries)
 
 # CREATE
 # POST '/cities'
 @cities_blueprint.route("/cities", methods=['POST'])
 def create_city():
     name = request.form['name']
-    country = country_repository.select(request.form['country_id'])
+    country_id = request.form['country_id']
     visited = request.form['visited']
+    country = country_repository.select(country_id)
     city = City(name, country, visited)
     city_repository.save(city)
     return redirect('/cities')

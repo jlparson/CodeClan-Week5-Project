@@ -31,15 +31,16 @@ def sights():
 # GET '/sights/new'
 @sights_blueprint.route("/sights/new", methods=['GET'])
 def new_sight():
+    sights = sight_repository.select_all()
     cities = city_repository.select_all()
-    return render_template("sights/new.html", cities=cities)
+    return render_template("sights/new.html", sights=sights, cities=cities)
 
 # CREATE
 # POST '/sights'
 @sights_blueprint.route("/sights", methods=['POST'])
 def create_sight():
     name = request.form['name']
-    city_id = city_repository.select(request.form['city_id'])
+    city_id = request.form['city_id']
     visited = request.form['visited']
     city = city_repository.select(city_id)
     sight = Sight(name, city, visited)

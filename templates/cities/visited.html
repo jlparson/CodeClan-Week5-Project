@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="visited">
+<div class="visited">
     <h2>Places I've Visited</h2>
     <p>
         Can't find a location? <button class="button"><a href="/cities/new">Add new</a></button>
@@ -8,24 +8,27 @@
 
     {% for city in cities if city.visited == True %}
 
-        <div class="visited list">
-            Country: {{city.country.name}}
-            <br>City: {{city.name}}
-            <br>Visited?
-            {% if city.visited == False %}
-            <span>&#10005;</span>
-                {% else %}
-            <span>&#10004;</span>
-            {% endif %}
-        </div> 
+        <div class="visited-list">
+            <div class="content">
+                <b>Country:</b> {{city.country.name}}
+                <br><b>City:</b> {{city.name}}
+                <br><b>Visited?</b>
+                {% if city.visited == False %}
+                <span>&#10005;</span>
+                    {% else %}
+                <span>&#10004;</span>
+                {% endif %}
+            </div>
+            
         <div class="buttons">
-            <button class="button"><a href="/cities/{{city.id}}/edit">Edit</a></button>
+            <br><br><button class="button"><a href="/cities/{{city.id}}/edit">Edit</a></button>
             <form class="delete-form" action="/cities/{{city.id}}/delete" method="POST">
                 <button class="trash-button">Delete</button>
             </form>
         </div>
+    </div>
     {% endfor %}
 
-    </div>
+</div>
     
 {% endblock %}

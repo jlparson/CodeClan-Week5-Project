@@ -1,31 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="sightseeing">
+<div class="sightseeing">
     <h2>Sightseeing</h2>
     <p>
         Can't find a sight? <button class="button"><a href="/sights/new">Add new</a></button>
     </p>
 
     {% for sight in sights %}
-        <div class="sight_list">
-        <br>City: {{sight.city.name}}
-        <br>Sight: {{sight.name}}
-        <br>Visited? 
-        {% if sight.visited == False %}
-        <span>&#10005;</span>
-        {% else %}
-        <span>&#10004;</span>
-        {% endif %}
-    </div>
+    
+        <div class="sights-list">
+            <div class="content"></div>
+                <br><b>City:</b> {{sight.city.name}}
+                <br><b>Sight:</b> {{sight.name}}
+                <br><b>Visited?</b>
+                {% if sight.visited == False %}
+                <span>&#10005;</span>
+                    {% else %}
+                <span>&#10004;</span>
+                {% endif %}
+            </div>
 
-        <button class="button"><a href="/sights/{{sight.id}}/edit">Edit</a></button>
-
-        <form class="delete-form" action="/sights/{{sight.id}}/delete" method="POST">
-            <button class="button">Delete</button>
+        <div class="buttons">
+            <br><br><button class="button"><a href="/sights/{{sight.id}}/edit">Edit</a></button>
+            <form class="delete-form" action="/sights/{{sight.id}}/delete" method="POST">
+                <button class="button">Delete</button>
             </form>
-
+        </div>
+    </div>
 {% endfor %}
 
-    </div>
+</div>
     
 {% endblock %}

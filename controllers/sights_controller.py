@@ -41,9 +41,9 @@ def new_sight():
 def create_sight():
     name = request.form['name']
     city_id = request.form['city_id']
-    visited = request.form['visited']
+    # visited = request.form['visited']
     city = city_repository.select(city_id)
-    sight = Sight(name, city, visited)
+    sight = Sight(name, city)
     sight_repository.save(sight)
     return redirect('/sights')
 
@@ -52,7 +52,7 @@ def create_sight():
 def edit_sight(id):
     sights = sight_repository.select(id)
     cities = city_repository.select_all()
-    return render_template('/sights/edit.html', cities=cities, sights=sights)
+    return render_template('/sights/edit.html', sights=sights, cities=cities)
 
 # UPDATE
 @sights_blueprint.route("/sights/<id>", methods=['POST'])

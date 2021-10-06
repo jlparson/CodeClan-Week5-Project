@@ -4,14 +4,15 @@
 
 <form action="/sights/{{sight.id}}" method="POST">
     <div>
-        <label for="country">Country: </label>
-        <input type="text" id="country" name="country" value="{{sight.city.country.name}}" required>
-    </div>
-
-    <div>
         <label for="city">City: </label>
-        <input type="text" id="city" name="city_id" value="{{sight.city.name}}" required>
+        <select name="city_id">
+            {% for country in countries %}
+            <option value="{{city.id}}" {% if city.id == sight.city.id %} selected {% endif %}>{{city.name}}</option>
+            {% endfor %}
+
+        </select>
     </div>
+        
 
     <div>
         <label for="sight">Sight: </label>

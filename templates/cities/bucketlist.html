@@ -6,7 +6,8 @@
         Can't find a location? <button class="button"><a href="/cities/new">Add new</a></button>
     </p>
 
-    {% for city in cities if city.visited == False %}
+    {% for city in cities %}
+    {% if city.visited == False %}
 
         <div class="bucket-list">
             <div class="content">
@@ -27,6 +28,7 @@
             </form>
         </div>
     </div>
+    {% endif %}
     {% endfor %}
 
 </div>

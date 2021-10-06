@@ -11,7 +11,7 @@ cities_blueprint = Blueprint("cities", __name__)
 @cities_blueprint.route("/cities")
 def cities():
     cities = city_repository.select_all()
-    return render_template("cities/index.html", all_cities = cities)
+    return render_template("cities/bucketlist.html", all_cities = cities)
 
 # CITIES VISITED
 @cities_blueprint.route("/visited")
@@ -38,20 +38,21 @@ def new_city():
 # POST '/cities'
 @cities_blueprint.route("/cities", methods=['POST'])
 def create_city():
+    print(request.form)
     name = request.form['name']
     country_id = request.form['country_id']
-    visited = request.form['visited']
+    # visited = request.form['visited']
     country = country_repository.select(country_id)
-    city = City(name, country, visited)
+    city = City(name, country)
     city_repository.save(city)
-    return redirect('/cities')
+    return redirect('/visited')
 
 # EDIT
 @cities_blueprint.route("/cities/<id>/edit", methods=['GET'])
 def edit_city(id):
     city = city_repository.select(id)
     countries = country_repository.select_all()
-    return render_template('/cities/edit.html', city=city, all_countries = countries)
+    return render_template('/cities/edit.html', city=city, countries = countries)
 
 # UPDATE
 # @cities_blueprint.route("/cities/<id>", methods=['POST'])
@@ -67,17 +68,20 @@ def edit_city(id):
 # UPDATE
 @cities_blueprint.route("/cities/<id>", methods=['POST'])
 def update_city(id):
+    print(request.form)
     name = request.form['name']
     country_id = request.form['country_id']
     visited = request.form['visited']
     country = country_repository.select(country_id)
     city = City(name, country, visited, id)
     city_repository.update(city)
-    return redirect('/cities')
+    if visited == False:
+        return redirect('/cities')
+    return redirect('/visited')
 
 # DELETE
 @cities_blueprint.route("/cities/<id>/delete", methods=['POST'])
 def delete_city(id):
     city_repository.delete(id)
-    return redirect('/cities')
+    return redirect('/bucketlist')
 

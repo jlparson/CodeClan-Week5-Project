@@ -13,19 +13,24 @@
 
         <div>
             <label for="city">City: </label>
-            <input type="text" id="city" name="city_id" placeholder="city" required autofocus>
+            <select name="city_id">
+                {% for city in cities %}
+                <option value="{{city.id}}">{{city.name}}</option>
+                {% endfor %}
+            </select>
         </div>
+            <!-- <input type="text" id="city" name="city_id" placeholder="city" required autofocus>
+        </div> -->
 
-        <div>
+        <!-- <div>
             <label for="visited">Visited? </label>
             <select name="visited" id="visited">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
-        </div>
+        </div> -->
 
         <button type="submit" value="add_new">Add new entry</button>
-
     </form>
 </div>
 

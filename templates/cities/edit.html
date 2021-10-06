@@ -8,9 +8,18 @@
         <input type="text" id="name" name="name" value="{{city.name}}" required>
     </div>
 
-    <div>
+    <!-- <div>
         <label for="country">Country: </label>
         <input type="text" id="country" name="country_id" value="{{city.country.name}}" required>
+    </div> -->
+    <div>
+        <label for="country">Country: </label>
+        <select name="country_id">
+            {% for country in countries %}
+            <option value="{{country.id}}" {% if country.id == city.country.id %} selected {% endif %}>{{country.name}}</option>
+            {% endfor %}
+
+        </select>
     </div>
 
     <div>

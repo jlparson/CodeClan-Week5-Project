@@ -45,7 +45,7 @@ def create_city():
     country = country_repository.select(country_id)
     city = City(name, country)
     city_repository.save(city)
-    return redirect('/visited')
+    return redirect('/bucketlist')
 
 # EDIT
 @cities_blueprint.route("/cities/<id>/edit", methods=['GET'])

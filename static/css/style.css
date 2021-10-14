@@ -38,30 +38,36 @@ body {
    }
 
    .visited-list {
-       border: 1px solid black;
+       border: 1px solid #20437c;
        width: 300px;
        min-height: 68px;
-       padding: 10px;
        line-height: 18px;
-       margin-bottom: 10px;
+       margin: 0.5rem 0.5rem;
+       padding: 0.5rem 0.5rem;
+       border-radius: 5%;
+       background: #ddeaff;
    }
 
    .bucket-list {
-       border: 1px solid black;
-       width: 300px;
-       min-height: 68px;
-       padding: 10px;
-       line-height: 18px;
-       margin-bottom: 10px;
+      border: 1px solid #20437c;
+      width: 300px;
+      min-height: 68px;
+      line-height: 18px;
+      margin: 0.5rem 0.5rem;
+      padding: 0.5rem 0.5rem;
+      border-radius: 5%;
+      background: #ddeaff;
    }
 
    .sights-list {
-       border: 1px solid black;
-       width: 300px;
-       min-height: 68px;
-       padding: 10px;
-       line-height: 18px;
-       margin-bottom: 10px;
+      border: 1px solid #20437c;
+      width: 300px;
+      min-height: 68px;
+      line-height: 18px;
+      margin: 0.5rem 0.5rem;
+      padding: 0.5rem 0.5rem;
+      border-radius: 5%;
+      background: #ddeaff;
    }
 
   nav > ul {

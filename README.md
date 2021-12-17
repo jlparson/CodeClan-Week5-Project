@@ -15,7 +15,11 @@ Search for destination by continent, city or country.
 Any other ideas you might come up with.
 
 What I learned:
+
 -Object oriented programming with Python
+
 -Test Driven Development
+
 -Web Programming (REST, MVC)
+
 -Interacting with a PostgreSQL database (CRUD)

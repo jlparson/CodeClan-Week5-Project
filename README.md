@@ -23,3 +23,5 @@ What I learned:
 -Web Programming (REST, MVC)
 
 -Interacting with a PostgreSQL database (CRUD)
+
+<img width="1431" alt="app_screenshot_for_github" src="https://user-images.githubusercontent.com/89013717/146583250-97b9ac78-3baa-4fb5-98bd-58abdae9e92e.png">
